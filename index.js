@@ -33,7 +33,13 @@ nextISSTimesForMyLocation((error, passTimes) => {
     return console.log("It didn't work!", error);
   }
   // success, print out the deets!
+  printPassTimes(passTimes);
+});
+
+const printPassTimes = (passTimes) => {
   passTimes.forEach((el) => {
     console.log(`Next pass at ${new Date(el.risetime)} for ${el.duration} seconds!`);
   });
-});
+};
+
+module.exports = { printPassTimes };
